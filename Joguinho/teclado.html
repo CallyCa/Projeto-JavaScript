@@ -1,0 +1,40 @@
+<!Doctype HTML>
+<html>
+    <head>
+        <title>Personagem</title>
+        <script src=teclado.js></script>
+        <script src=bola.js></script>
+        <script src=heroi.js></script>
+        <script src=animacao.js></script>
+    
+    </head>
+    
+    <body>
+        <canvas id="canvas_teclado_1" width="500" height="500"></canvas>
+        <script>
+            var canvas = document.getElementById('canvas_teclado_1');
+            var context = canvas.getContext('2d');
+            
+            var teclado = new Teclado(document);
+            var animacao = new Animacao(context);
+            
+            // Posiçao inicial do personagem
+            
+            var heroi = new Heroi(context, teclado, animacao);
+            heroi.x = 0;
+            heroi.y = 100;
+            animacao.novoSprite(heroi);
+            teclado.disparou(ESPACO, function(){
+                heroi.atirar();
+            })
+            
+            animacao.ligar();
+            
+            
+            
+            
+        </script>
+     
+    </body>
+
+</html>
